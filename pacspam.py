@@ -1,4 +1,5 @@
 import socket
+import time
 
 print("|  __ \ /\   / ____|    / ____|  __ \ /\   |  \/  |")
 print("| |__) /  \ | |   _____| (___ | |__) /  \  | \  / |")
@@ -11,6 +12,7 @@ print("Written by haydenki")
 IP = input("IP:")
 PORT = int(input("PORT:"))
 MESSAGE = input("MESSAGE:")
+DELAY = int(input("DELAY(ms):"))
 count = 0
 
 print("IP = ", IP , "\nPORT = ", PORT, "\nMESSAGE = ", MESSAGE)
@@ -21,5 +23,6 @@ while(True):
 		sock.sendto(bytes(MESSAGE, "utf-8"), (IP, PORT))
 		count += 1
 		print("[" + str(count) + "] packets sent")
+		time.sleep(DELAY / 100)
 	except:
 		print("Error")
